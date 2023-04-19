@@ -1,14 +1,21 @@
-
-export default function Hero(){
+import Image from "next/image";
+import Link from "next/link";
+export default function Hero({data}){
     return(
-        <article className=" flex flex-col md:flex-row-reverse md:gap-4">
-            <div className=" px-12 py-20 my-6 bg-slate-400 w-[100vw] md:max-w-md md:rounded-lg animate-pulse"></div>
-            <section className=" my-6">
+        <article className=" my-6 flex flex-col md:flex-row-reverse md:gap-4">
+            <img  className=" mb-6 w-full md:my-0 md:w-[300px]"
+            src={data.news[0].image} alt="article image" rel="noreferrer" width={300} height={300} 
+            />
+            <section className=" my-6 flex flex-col justify-items-center">
                 <h2 className=" text-center text-3xl p-2">
-                    TITLE
+                    {data.news[0].title}
                 </h2>
-                <p className=" text-center text-xl p-2">
-                    Summary Desctiption 
+                <Link href={data.news[0].url} target="_blank" 
+                className=" p-2 hover:text-red-800 mx-auto">
+                    Read Full Article
+                </Link>
+                <p className=" text-center max-w-[45ch] mx-auto text-xl p-2">
+                    {data.news[0].summary}
                 </p>
             </section>
         </article>
