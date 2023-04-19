@@ -28,6 +28,9 @@ export default function Home({data,dataTwo,dataThree,dataFour}) {
   )
 }
 export async function getStaticProps() {
+  const filterBank = ['animals','pizza','fruit','dogs','frogs',]
+  const randomfilter = Math.floor(Math.random() * 5)
+  const randomNumber = Math.floor(Math.random() * 20)
   const key = process.env.NEXT_PUBLIC_WORD_API_KEY;
   const keyTwo = process.env.NEXT_PUBLIC_NEWS_API_KEY;
   const res = await fetch(`https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=${key}`)
@@ -36,10 +39,10 @@ export async function getStaticProps() {
   const dataTwo = await resTwo.json();
   const resThree = await fetch('https://www.boredapi.com/api/activity')
   const dataThree = await resThree.json();
-  const resFour = await fetch(`https://api.worldnewsapi.com/search-news?api-key=${keyTwo}&text=animals&language=en&min-sentiment=0.8&number=1`)
+  const resFour = await fetch(`https://api.worldnewsapi.com/search-news?api-key=${keyTwo}&text=${filterBank[randomfilter]}&language=en&min-sentiment=0.8&number=1&offset=${randomNumber}`)
   const dataFour = await resFour.json()
   return {
       props: { data,dataTwo,dataThree,dataFour },
-      revalidate:21600,
+      revalidate:14400,
   }
 }
