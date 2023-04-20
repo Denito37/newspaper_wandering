@@ -17,10 +17,13 @@ export default function Home({data,dataTwo,dataThree,dataFour}) {
     <main className="flex flex-col items-center mx-auto max-w-5xl">
       <Header />
       <Hero data={dataFour} />
+      <div>
       <div className=' grid sm:grid-cols-2 lg:grid-cols-3'>
         <WOTD data={data} />
         <FOTD data={dataTwo} />
         <Activity data={dataThree} />
+      </div>
+      <hr className=' h-[2px] bg-red-800' />
       </div>
       <Footer />
     </main>

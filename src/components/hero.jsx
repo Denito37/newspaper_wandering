@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 export default function Hero({data}){
-    const summaryLength = data.news[0].text.split(' ').length /2;
-    const summaryArray = data.news[0].text.split(' ').splice(0,summaryLength)
-    const summary = summaryArray.join(' ')
+    const previewArray = data.news[0].text.split(' ').splice(0,36)
+    const preview = previewArray.join(' ')
 
     return(
         <article className=" my-6 flex flex-col">
@@ -16,7 +15,7 @@ export default function Hero({data}){
                         {data.news[0].title}
                     </h2>
                     <p className=" text-center max-w-[45ch] mx-auto text-xl p-2">
-                        {summary}...
+                        {preview}...
                     </p>
                     <Link href={data.news[0].url} target="_blank" 
                     className=" p-2 hover:text-red-800 mx-auto">
