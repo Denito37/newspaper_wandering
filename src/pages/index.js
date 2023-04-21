@@ -15,7 +15,6 @@ export default function Home({data,dataTwo,dataThree,dataFour}) {
       <meta name="description" content="Digital Newspaper with Niche news and fun facts"></meta>
     </Head>
     <main className="flex flex-col items-center mx-auto max-w-5xl">
-      <Header />
       <Hero data={dataFour} />
       <div>
       <div className=' grid sm:grid-cols-2 lg:grid-cols-3'>
@@ -25,7 +24,6 @@ export default function Home({data,dataTwo,dataThree,dataFour}) {
       </div>
       <hr className=' h-[2px] bg-red-800' />
       </div>
-      <Footer />
     </main>
   </>
   )

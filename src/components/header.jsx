@@ -11,7 +11,7 @@ export default function Header(){
     },[fullDate])
 
     return(
-        <header className=" w-full">
+        <header className=" max-w-5xl mx-auto">
             <h1 className=" p-4 text-6xl text-red-800 font-normal text-center">
                 Wandering Scoops
             </h1>
