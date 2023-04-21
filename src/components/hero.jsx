@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 export default function Hero({data}){
-    const previewArray = data.news[0].text.split(' ').splice(0,36)
+    const previewArray = data.news[0]?.text.split(' ').splice(0,36)
     const preview = previewArray.join(' ')
 
     return(

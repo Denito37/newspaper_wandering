@@ -31,8 +31,8 @@ export default function Home({data,dataTwo,dataThree,dataFour}) {
   )
 }
 export async function getStaticProps() {
-  const filterBank = ['animals','pizza','fruit','dogs','frogs',]
-  const randomfilter = Math.floor(Math.random() * 5)
+  const queryFilter = ['text=animals','text=cats','text=dogs','text=frog','text=bird','text=fruit','text=vegetable','text=curry','entities=PER:Lebron James','entities=PER:Jack Black','entities=LOC:Hawaii','entities=ORG:Lego','news-sources=https://www.positive.news']
+  const randomfilter = Math.floor(Math.random() * queryFilter.length)
   const randomNumber = Math.floor(Math.random() * 20)
   const key = process.env.NEXT_PUBLIC_WORD_API_KEY;
   const keyTwo = process.env.NEXT_PUBLIC_NEWS_API_KEY;
@@ -42,7 +42,7 @@ export async function getStaticProps() {
   const dataTwo = await resTwo.json();
   const resThree = await fetch('https://www.boredapi.com/api/activity')
   const dataThree = await resThree.json();
-  const resFour = await fetch(`https://api.worldnewsapi.com/search-news?api-key=${keyTwo}&text=${filterBank[randomfilter]}&language=en&min-sentiment=0.8&number=1&offset=${randomNumber}`)
+  const resFour = await fetch(`https://api.worldnewsapi.com/search-news?api-key=${keyTwo}&${queryFilter[randomfilter]}&language=en&min-sentiment=0.6&number=1&offset=${randomNumber}`)
   const dataFour = await resFour.json()
   return {
       props: { data,dataTwo,dataThree,dataFour },
