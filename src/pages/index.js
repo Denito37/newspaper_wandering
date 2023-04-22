@@ -1,11 +1,8 @@
-import Image from 'next/image'
 import Head from 'next/head'
-import Header from '@/components/header'
 import Hero from '@/components/hero'
 import WOTD from '@/components/WOTD'
 import FOTD from '@/components/FOTD'
 import Activity from '@/components/actvity'
-import Footer from '@/components/footer'
 
 export default function Home({data,dataTwo,dataThree,dataFour}) {
   return (
