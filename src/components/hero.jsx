@@ -17,7 +17,7 @@ export default function Hero({data}){
                     <p className=" text-center max-w-[45ch] mx-auto text-xl p-2">
                         {preview}...
                     </p>
-                    <Link href={data.news[0].url} target="_blank" 
+                    <Link href={data?.news[0]?.url} target="_blank" 
                     className=" p-2 hover:text-red-800 mx-auto">
                         Read Full Article
                     </Link>
