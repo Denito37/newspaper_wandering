@@ -8,7 +8,7 @@ export default function Hero({data}){
         <article className=" my-6 flex flex-col">
             <div className="md:grid md:grid-cols-5 md:gap-4 items-center">
                 <img  className=" mb-6 w-full md:my-0 md:col-span-2 md:order-2"
-                src={data.news[0].image} alt="article image" rel="noreferrer" width={300} height={300} 
+                src={data.news[0]?.image} alt="article image" rel="noreferrer" width={300} height={300} 
                 />
                 <section className=" my-6 md:order-1 md:col-span-3 flex flex-col justify-items-center">
                     <h2 className=" text-center text-3xl p-2">

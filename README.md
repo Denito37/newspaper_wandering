@@ -3,6 +3,7 @@ Wandering Scoops is a digital Newspaper with niche news and other interesting in
 **Built With**
 - nextjs
 - Tailwind CSS
+- SWR
 - wordnik API
 - Random useless facts API
 - bored API
