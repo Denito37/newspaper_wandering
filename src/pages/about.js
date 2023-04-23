@@ -11,6 +11,7 @@ export default function About(){
             </Head>
             <Story />
             <Goal />
+            <hr className=' h-[2px] bg-red-800 mx-auto max-w-5xl' />
         </main>
     )
 }

@@ -9,6 +9,7 @@ export default function Home({data,dataTwo,dataThree,dataFour}) {
     <>
     <Head>
       <title>Wandering Scoops</title>
+      <link rel="shortcut icon" href="/favicon.ico" />
       <meta name="description" content="Digital Newspaper with Niche news and fun facts"></meta>
     </Head>
     <main className="flex flex-col items-center mx-auto max-w-5xl">
@@ -37,10 +38,10 @@ export async function getStaticProps() {
   const dataTwo = await resTwo.json();
   const resThree = await fetch('https://www.boredapi.com/api/activity')
   const dataThree = await resThree.json();
-  const resFour = await fetch(`https://api.worldnewsapi.com/search-news?api-key=${keyTwo}&${queryFilter[randomfilter]}&language=en&min-sentiment=0.6&number=1&offset=${randomNumber}`)
+  const resFour = await fetch(`https://api.worldnewsapi.com/search-news?api-key=${keyTwo}&${queryFilter[randomfilter]}&language=en&min-sentiment=0.7&number=1&offset=${randomNumber}`)
   const dataFour = await resFour.json()
   return {
       props: { data,dataTwo,dataThree,dataFour },
-      revalidate:14400,
+      revalidate:43200,
   }
 }
