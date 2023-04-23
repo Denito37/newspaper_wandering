@@ -5,13 +5,13 @@ export default function Activity({data}){
                 Activity Suggestions
             </h2>
             <p className=" p-4 text-center">
-                {data.activity}
+                {data?.activity}
             </p> 
             <p className=" p-2 text-center">
-                <span className=" font-bold">Activity type:</span> {data.type}
+                <span className=" font-bold">Activity type:</span> {data?.type}
             </p>
             <p className=" p-2 text-center">
-                <span className=" font-bold">Participants: </span> {data.participants}
+                <span className=" font-bold">Participants: </span> {data?.participants}
             </p>
         </article>
     )
