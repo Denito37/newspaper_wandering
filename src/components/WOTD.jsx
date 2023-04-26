@@ -1,11 +1,12 @@
 import useSWR from 'swr'
+import Loading from './loading.jsx';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 export default function WOTD(){
     const key = process.env.NEXT_PUBLIC_WORD_API_KEY;
-    const {data, error, loading} = useSWR(`https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=${key}`,fetcher);
-    if(loading) return <p>Loading...</p>
+    const {data, error} = useSWR(`https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=${key}`,fetcher);
+    if(!data) return <Loading />
     if(error) return <p>error</p>
     return(
         <article className=" p-4 m-4 max-w-md ">

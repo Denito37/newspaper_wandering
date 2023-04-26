@@ -1,10 +1,11 @@
 import useSWR from 'swr'
+import Loading from './loading'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 export default function FOTD(){
-    const {data, error, loading} = useSWR('https://uselessfacts.jsph.pl/api/v2/facts/today',fetcher)
-    if(loading) return <p>Loading...</p>
+    const {data, error} = useSWR('https://uselessfacts.jsph.pl/api/v2/facts/today',fetcher)
+    if(!data) return <Loading />
     if(error) return <p>error</p>
     return(
         <article className=" p-4 m-4 max-w-md">
